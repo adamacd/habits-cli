@@ -1,0 +1,11 @@
+#to create the table
+
+CREATE TABLE IF NOT EXISTS habitsTable (
+	habit_id INTEGER PRIMARY KEY,
+	periodicity TEXT NOT NULL,
+	description TEXT NOT NULL,
+	datetime_created TEXT NOT NULL,
+	datetime_last_completed TEXT,
+	streak INTEGER,
+	active TEXT
+);
