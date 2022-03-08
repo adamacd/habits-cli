@@ -28,13 +28,23 @@ print("successfully added")
 '''
 
 # get data from db
+'''
 cur.execute(
     "SELECT * FROM habitsTable WHERE habit_id == ?",
     [id] #note, gotta be list, or else will be an error
     )
 
 print(cur.fetchone())
+'''
 
+# Formatting results for analysis: show current, 
+# show all, all daily, all weekly,
+cur.execute(
+    "SELECT * FROM habitsTable"
+)
+items = cur.fetchall()
+for element in items:
+    print(str(element[0]) + " " + element[1] + "   " + element[2]) #ect.
 
 
 # submit changes
