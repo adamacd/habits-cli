@@ -1,19 +1,16 @@
-import time
+from datetime import datetime
 from habits import *
+from database import *
 from instructions import instructions_message
-#create daily
-#create weekly
-#delete
 
 def main():
     instructions_message()
-    exit = False
-    commands = [
-        'exit',
-        'create daily',
-        'create weekly',
-        'delete'
+    commands = ['exit', 'create daily', 'create weekly', 'delete', 'complete',
+                'view daily', 'view weekly', 'view', 'view lifetime', 
+                'streak best', 'streak', 'clear', 'help'
     ]
+    
+    exit = False
     while exit != True:
         user_input = input(">> ").casefold()
 
@@ -21,29 +18,41 @@ def main():
             print("\nThe program has ended.")
             exit = True
         elif user_input == commands[1]:
-            description = input("Briefly describe the habit you wish to create: ")
-            datetime_created = input("(24 hr clock) Around what time should the habit occur?: ")
-            
-            print(f"\nThe habit '{description}' was created.\nIt occurs at around {datetime_created} each day.")
-        else:
+            description = input("Briefly describe the habit you want to create: ")
+            created = datetime.now()
+            habit = Habit(description, created)
+            habit.createDaily()
+        elif user_input == commands[2]:
+            description = input("Briefly describe the habit you want to create: ")
+            created = datetime.now()
+            habit = Habit(description, created)
+            habit.createWeekly()
+        elif user_input == commands[3]:
             pass
+        elif user_input == commands[4]:
+            pass
+        elif user_input == commands[5]:
+            pass
+        elif user_input == commands[6]:
+            pass
+        elif user_input == commands[7]:
+            #view
+            pass
+        elif user_input == commands[8]:
+            pass
+        elif user_input == commands[9]:
+            pass
+        elif user_input == commands[10]:
+            pass
+        elif user_input == commands[11]:
+            pass
+        elif user_input == commands[12]:
+            pass
+        elif user_input == commands[13]:
+            pass
+        else:
+            print("Bad Input")
+            exit = True
 
 if __name__ == '__main__':
     main()
-
-'''
-    quit = False
-    start_of_streak = 0
-    end_of_streak = 0
-    while quit != True:
-        x = input("> ")
-        if x=="make daily":
-            ok = time.localtime()
-            start_of_streak = time.mktime(ok)
-        elif x=="complete":
-            nibba = time.localtime()
-            end_of_streak = time.mktime(nibba)
-            print("seconds from creation to completion: " + (end_of_streak - start_of_streak))
-            x = time.strftime("%Y-%m-%d, %H:%M:%S") # givez date n time of completion
-            quit = True
-'''
