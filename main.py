@@ -13,7 +13,7 @@ def main():
     
     exit = False
     while exit != True:
-        user_input = input(">> ").casefold()
+        user_input = input("\n>> ").casefold()
 
         if user_input == commands[0]:
             print("\nThe program has ended.")
@@ -34,7 +34,7 @@ def main():
             habit = HabitChangeState(rowid, "Deleted")
             habit.delete()
         elif user_input == commands[4]:
-            viewLifetime()
+            view()
             rowid = input("Which habit will you mark as complete?: ")
             date_completed = datetime.now()
             habit = HabitChangeState(rowid)
@@ -49,9 +49,10 @@ def main():
         elif user_input == commands[8]:
             viewLifetime()
         elif user_input == commands[9]:
-            pass
+            streakBest()
         elif user_input == commands[10]:
-            pass
+            rowid = input("Which habit do you want to see the streak for?: ")
+            streak(rowid)
         elif user_input == commands[11]:
             clear()
         elif user_input == commands[12]:
