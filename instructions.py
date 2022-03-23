@@ -22,12 +22,14 @@ class text:
             "*Exit the program                  'exit'\n" +\
             "*See this command list again       'help'")
         
-class instructions_message(text):
-    '''Tells the user about the commands available to them.'''
-    print("\n* * Habit Tracker Command Line Interface * *\n"+ text.line())
+class message(text):
     
-    text.commandList()
-    
-    print(text.line() + "\nThe program is running. Enter your command >>")
+    def help(self):
+        '''Tells the user about the commands available to them.'''
+        print("\n* * Habit Tracker Command Line Interface * *\n"+ text.line())
+        
+        text.commandList()
+        
+        print(text.line() + "\nThe program is running. Enter your command >>")
 
 

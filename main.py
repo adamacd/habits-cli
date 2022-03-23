@@ -1,14 +1,15 @@
 from datetime import datetime
 from habits import *
 from database import *
-from instructions import instructions_message
+from instructions import message
+from analyze import *
 
 def main():
-    instructions_message()
+    instructions = message()
+    instructions.help()
     commands = ['exit', 'create daily', 'create weekly', 'delete', 'complete',
                 'view daily', 'view weekly', 'view', 'view lifetime', 
-                'streak best', 'streak', 'clear', 'help'
-    ]
+                'streak best', 'streak', 'clear', 'help']
     
     exit = False
     while exit != True:
@@ -28,30 +29,35 @@ def main():
             habit = Habit(description, created)
             habit.createWeekly()
         elif user_input == commands[3]:
-            pass
+            viewLifetime()
+            rowid = input("Which habit would you like to delete? (choose its number): ")
+            habit = HabitChangeState(rowid, "Deleted")
+            habit.delete()
         elif user_input == commands[4]:
-            pass
+            viewLifetime()
+            rowid = input("Which habit will you mark as complete?: ")
+            date_completed = datetime.now()
+            habit = HabitChangeState(rowid)
+            habit.Completed(date_completed)
+            
         elif user_input == commands[5]:
-            pass
+            viewDaily()
         elif user_input == commands[6]:
-            pass
+            viewWeekly()
         elif user_input == commands[7]:
-            #view
-            pass
+            view()
         elif user_input == commands[8]:
-            pass
+            viewLifetime()
         elif user_input == commands[9]:
             pass
         elif user_input == commands[10]:
             pass
         elif user_input == commands[11]:
-            pass
+            clear()
         elif user_input == commands[12]:
-            pass
-        elif user_input == commands[13]:
-            pass
+            instructions.help()
         else:
-            print("Bad Input")
+            print("Invalid command; the program will end now.")
             exit = True
 
 if __name__ == '__main__':

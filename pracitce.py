@@ -2,7 +2,11 @@ from datetime import datetime
 
 val1 = datetime.now()
 
-val2 = datetime(2022,3,13,7,17)
+val2 = datetime(2022,3,24,11,17)
+
+fag = str(val1)
+
+
 print(val1)
 print(val2)
 

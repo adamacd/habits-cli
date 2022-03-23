@@ -1,17 +1,28 @@
-from database import view_rows
+import sqlite3
+
+conn = sqlite3.connect('habits.db')
+cur = conn.cursor()
 
 def view():
-    x = view_rows()
-    xcopy = x.copy()
-    print(x[0][-3:])
+    cur.execute("SELECT rowid, * FROM habitsTable WHERE active == 'Yes';")
+    items = cur.fetchall()
+    for element in items:
+        print(element)
 
 def viewDaily():
-    pass
+    cur.execute("SELECT rowid, * FROM habitsTable WHERE periodicity == 'daily';")
+    items = cur.fetchall()
+    for element in items:
+        print(element)
 
 def viewWeekly():
-    pass
+    cur.execute("SELECT rowid, * FROM habitsTable WHERE periodicity == 'weekly';")
+    items = cur.fetchall()
+    for element in items:
+        print(element)
 
 def viewLifetime():
-    pass
-
-view()
+    cur.execute("SELECT rowid, * FROM habitsTable;")
+    items = cur.fetchall()
+    for element in items:
+        print(element)

@@ -1,4 +1,3 @@
-from datetime import datetime
 from database import *
 
 class Habit:
@@ -12,5 +11,18 @@ class Habit:
         
     def createWeekly(self):
         insert("weekly", self.description, self.created)
+        
+class HabitChangeState:
+    
+    def __init__(self, rowid):
+        self.rowid = rowid
+        
+    def delete(self):
+        delete(self.rowid)
 
+    def clear(self):
+        clear()
+
+    def Completed(self, date_completed):
+        complete(self.rowid, date_completed)
 
