@@ -5,6 +5,11 @@ from instructions import message
 from analyze import *
 
 def main():
+    '''
+    Main loop of the program; takes commands from users, executes functions/methods.
+    Creates instances of classes to achieve this.
+    '''
+    
     instructions = message()
     instructions.help()
     commands = ['exit', 'create daily', 'create weekly', 'delete', 'complete',

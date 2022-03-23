@@ -1,6 +1,3 @@
-'''The purpose of this file is to create instructions 
-for the user for when they run main.py'''
-
 class text:
     '''Provide decoration and commands list for instructions message'''
     def line():
@@ -23,6 +20,10 @@ class text:
             "*See this command list again       'help'")
         
 class message(text):
+    '''
+    Provide instructions 
+    for the user for when they run main.py
+    '''
     
     def help(self):
         '''Tells the user about the commands available to them.'''

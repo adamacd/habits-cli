@@ -4,6 +4,9 @@ conn = sqlite3.connect('habits.db')
 cur = conn.cursor()
 
 def view():
+    '''
+    SQL Query to retrieve active habits. Python print for clarity for the user.
+    '''
     cur.execute("SELECT rowid, periodicity, description, substr(created,0,17) AS created FROM habitsTable \
                 WHERE active == 'Yes';")
     items = cur.fetchall()
@@ -11,6 +14,9 @@ def view():
         print(element)
 
 def viewDaily():
+    '''
+    SQL Query to view daily habits.
+    '''
     cur.execute(
                 "SELECT rowid, periodicity, description, substr(created,0,17) AS created FROM habitsTable \
                 WHERE periodicity == 'daily' AND active = 'Yes';")
@@ -19,6 +25,9 @@ def viewDaily():
         print(element)
 
 def viewWeekly():
+    '''
+    SQL Query to view weekly habits.
+    '''
     cur.execute(
                 "SELECT rowid, periodicity, description, substr(created,0,17) AS created FROM habitsTable \
                 WHERE periodicity == 'weekly' AND active = 'Yes';")
@@ -27,12 +36,18 @@ def viewWeekly():
         print(element)
 
 def viewLifetime():
+    '''
+    SQL Query to view all habits, including expired.
+    '''
     cur.execute("SELECT rowid, periodicity, description, substr(created,0,17) AS created FROM habitsTable;")
     items = cur.fetchall()
     for element in items:
         print(element)
 
 def streakBest():
+    '''
+    SQL Query to view the row with the MAX streak.
+    '''
     cur.execute(
         "SELECT description, streak from habitsTable \
         WHERE streak = (SELECT MAX(streak) FROM habitsTable)")
@@ -41,6 +56,10 @@ def streakBest():
         print(element, end= ' ')
     
 def streak(rowid):
+    '''
+    Print the streak value according to the rowid given by user.
+    :param rowid: rowid in the SQLite database.
+    '''
     cur.execute(
         "SELECT description, streak from habitsTable \
         WHERE rowid = (?)", (rowid))
