@@ -12,13 +12,13 @@ class Habit:
         '''
         Insert a daily habit into the database.
         '''
-        insert("daily", self.description, self.created)
+        insert("daily", self.description, self.created, db_name())
         
     def createWeekly(self):
         '''
         Insert a weekly habit into the database.
         '''
-        insert("weekly", self.description, self.created)
+        insert("weekly", self.description, self.created, db_name())
         
 class HabitChangeState:
     '''
@@ -28,10 +28,10 @@ class HabitChangeState:
         self.rowid = rowid
     
     def delete(self):
-        delete(self.rowid)
+        delete(self.rowid, db_name())
 
     def clear(self):
-        clear()
+        clear(db_name())
 
     def Completed(self, date_completed):
-        complete(self.rowid, date_completed)
+        complete(self.rowid, date_completed, db_name())

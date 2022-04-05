@@ -9,7 +9,7 @@ def main():
     Main loop of the program; takes commands from users, executes functions/methods.
     Creates instances of classes to achieve this.
     '''
-    
+    make_db(db_name()) # Create the database if it doesn't exist.
     instructions = message()
     instructions.help()
     commands = ['exit', 'create daily', 'create weekly', 'delete', 'complete',
@@ -36,15 +36,14 @@ def main():
         elif user_input == commands[3]:
             viewLifetime()
             rowid = input("Which habit would you like to delete? (choose its number): ")
-            habit = HabitChangeState(rowid, "Deleted")
+            habit = HabitChangeState(rowid)
             habit.delete()
         elif user_input == commands[4]:
             view()
             rowid = input("Which habit will you mark as complete?: ")
             date_completed = datetime.now()
             habit = HabitChangeState(rowid)
-            habit.Completed(date_completed)
-            
+            habit.Completed(date_completed)    
         elif user_input == commands[5]:
             viewDaily()
         elif user_input == commands[6]:
