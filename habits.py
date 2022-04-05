@@ -21,7 +21,9 @@ class Habit:
         insert("weekly", self.description, self.created)
         
 class HabitChangeState:
-
+    '''
+    Delete, complete, or clear habits.
+    '''
     def __init__(self, rowid):
         self.rowid = rowid
     
@@ -33,4 +35,3 @@ class HabitChangeState:
 
     def Completed(self, date_completed):
         complete(self.rowid, date_completed)
-

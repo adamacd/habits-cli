@@ -58,7 +58,7 @@ def streakBest():
 def streak(rowid):
     '''
     Print the streak value according to the rowid given by user.
-    :param rowid: rowid in the SQLite database.
+    :param rowid: rowid given by user, that corresponds to a rowid in the database.
     '''
     cur.execute(
         "SELECT description, streak from habitsTable \

@@ -21,8 +21,7 @@ class text:
         
 class message(text):
     '''
-    Provide instructions 
-    for the user for when they run main.py
+    Provide instructions for the user in main.py
     '''
     
     def help(self):
