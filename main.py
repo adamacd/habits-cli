@@ -15,7 +15,7 @@ def main():
     commands = ['exit', 'create daily', 'create weekly', 'delete', 'complete',
                 'view daily', 'view weekly', 'view', 'view lifetime', 
                 'streak best', 'streak', 'clear', 'help']
-    
+
     exit = False
     while exit != True:
         user_input = input("\n>> ").casefold()
@@ -55,6 +55,7 @@ def main():
         elif user_input == commands[9]:
             streakBest()
         elif user_input == commands[10]:
+            view()
             rowid = input("Which habit do you want to see the streak for?: ")
             streak(rowid)
         elif user_input == commands[11]:
