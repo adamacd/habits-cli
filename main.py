@@ -59,7 +59,7 @@ def main():
             rowid = input("Which habit do you want to see the streak for?: ")
             streak(rowid)
         elif user_input == commands[11]:
-            clear()
+            clear(db_name())
         elif user_input == commands[12]:
             instructions.help()
         else:

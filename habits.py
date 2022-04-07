@@ -30,8 +30,5 @@ class HabitChangeState:
     def delete(self):
         delete(self.rowid, db_name())
 
-    def clear(self):
-        clear(db_name())
-
     def Completed(self, date_completed):
         complete(self.rowid, date_completed, db_name())
