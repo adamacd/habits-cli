@@ -22,13 +22,19 @@ class Habit:
         
 class HabitChangeState:
     '''
-    Delete, complete, or clear habits.
+    Delete, complete habits
     '''
     def __init__(self, rowid):
         self.rowid = rowid
     
     def delete(self):
+        '''
+        Delete a habit from the database
+        '''
         delete(self.rowid, db_name())
 
     def Completed(self, date_completed):
+        '''
+        Attempt to mark a habit as complete, and increment the streak.
+        '''
         complete(self.rowid, date_completed, db_name())
