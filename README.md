@@ -1,5 +1,5 @@
 # Habit Tracker CLI
-Create, manage, and inspect your habits.
+This command line interface allows you to create habits. You view your habits, and accumulate streaks if you mark them as complete in the allotted time (24 hrs if daily, 168 hrs if weekly). The habits are stored locally in a SQLite database.
 
 # Starting the program
 Run main.py from the command line.
